@@ -1,0 +1,31 @@
+----- v1.0 ------------
+2016/07/16: Initial Release
+----- v1.1 ------------
+2016/08/01: Improved light version
+----- v1.2 ------------
+2016/09/12: Optimized performance on mobile
+2016/09/12: Updated Visual Composer
+----- v1.2.1 ------------
+2016/11/01: Updated Revolution slider v5.3.0.2
+----- v1.2.2 ------------
+2017/01/24: Updated Revolution slider v5.3.1.5
+2017/01/24: Updated Visual Composer v5.0.1
+
+------ V1.3.0 -----------
+2017/04/12: Fixed menu bug
+2017/04/18: Updated Woocommerce 3.0
+2017/04/18: Update Visual Composer 5.1.1
+
+
+------ V1.3.1 -----------
+Updated theme to support woocommerce to 3.7.0
+Updated plugin revolution slider to 6.1.1
+Updated plugin Visual Composer (WPBakery Page Builder) to 6.0.5
+Updated plugin Portfolios Manager to 1.2.1
+Updated plugin Inwave Common to 1.2.2
+Fixed problem woocommerce columns not working
+Fix bug: category not work with portfolio slider
+Fixed memu mobile rtl
+Fixed extra class infobaner, update revolution slider
+
+
