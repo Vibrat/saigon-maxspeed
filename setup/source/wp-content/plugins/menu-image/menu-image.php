@@ -101,6 +101,7 @@ class Menu_Image_Plugin {
 		add_action( 'save_post_nav_menu_item', array( $this, 'menu_image_save_post_action' ), 10, 3 );
 		add_action( 'admin_head-nav-menus.php', array( $this, 'menu_image_admin_head_nav_menus_action' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'menu_image_add_inline_style_action' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'menu_image_hover_customization' ) );
 		add_action( 'admin_action_delete-menu-item-image', array( $this, 'menu_image_delete_menu_item_image_action' ) );
 		add_action( 'wp_ajax_set-menu-item-thumbnail', array( $this, 'wp_ajax_set_menu_item_thumbnail' ) );
 
@@ -536,7 +537,7 @@ class Menu_Image_Plugin {
 				$image .= wp_get_attachment_image(
 					$item->thumbnail_hover_id, $image_size, false, array(
 						'class' => "hovered-image {$class}",
-						'style' => "margin-left: -{$margin_size}px;",
+						'style' => "",
 					)
 				);
 				$image .= '</span>';
@@ -658,6 +659,10 @@ class Menu_Image_Plugin {
 	public function menu_image_add_inline_style_action() {
 		wp_register_style( 'menu-image', plugins_url( '', __FILE__ ) . '/includes/css/menu-image.css', array(), '2.9.5' );
 		wp_enqueue_style( 'menu-image' );
+	}
+
+	public function menu_image_hover_customization() {
+		wp_enqueue_script( 'menu-image-hover-customization', plugins_url( '/includes/js/menu-image-hover-customization.js', __FILE__ ), array( 'jquery' ), '1.0.0' );
 	}
 
 	/**

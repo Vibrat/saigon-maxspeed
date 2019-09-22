@@ -866,7 +866,7 @@ a img.aligncenter {
 }
 
 .header .iw-main-menu .iw-nav-menu > li .sub-menu li {
-    position: relative;
+    /* position: relative;  Alow sub-menu to align with parent menu*/
     border-left:3px solid transparent;
 }
 
@@ -883,6 +883,7 @@ a img.aligncenter {
     visibility: visible;
     opacity: 1;
     left: 100%;
+    height: 100%; /* Allow sub-menu to have equal height with parent */
 }
 
 .header .iw-main-menu .iw-nav-menu li .sub-menu li .sub-menu a {

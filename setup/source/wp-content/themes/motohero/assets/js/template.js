@@ -288,7 +288,8 @@
         //if($windows_width > 991){
             var $header = $(".header-sticky"),
                 $clone = $header.before($header.clone().addClass("clone")),
-                $float_clone = $header.before($header.clone().addClass("clone-float"));
+                $float_clone = $header.before($header.clone().addClass("clone-float")),
+                $menu_clone = $(".header .iw-menu-none-mobile");
 
             $(window).on("scroll", function() {
                 var fromTop = $(document).scrollTop();

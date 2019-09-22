@@ -6,11 +6,11 @@
     display: inline;
 }
 .menu-image-hover-wrapper img.hovered-image,
-.menu-item:hover .menu-image-hover-wrapper img.menu-image {
+.menu-item:hover > .menu-image-hovered > .menu-image-hover-wrapper > img.menu-image {
     opacity: 0;
     transition: opacity 0.25s ease-in-out 0s;
 }
-.menu-item:hover img.hovered-image {
+.menu-item:hover > .menu-image-hovered > .menu-image-hover-wrapper > img.hovered-image {
     opacity: 1;
 }
 .menu-image-title-after.menu-image-not-hovered img,
