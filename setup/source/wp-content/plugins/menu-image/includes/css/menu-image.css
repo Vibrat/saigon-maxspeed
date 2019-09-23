@@ -45,3 +45,25 @@
 #et-top-navigation .nav li.menu-item, .navigation-top .main-navigation li {
     display: inline-flex;
 }
+
+.main-menu .iw-main-menu ul.iw-nav-menu li a {
+    display: flex !important;
+    justify-content: space-between; 
+}
+
+.main-menu .iw-main-menu ul.iw-nav-menu li a span {
+    display: inline-block;
+    white-space: nowrap;
+}
+.main-menu .iw-main-menu ul.iw-nav-menu li a span.menu-image-hover-wrapper {
+    flex: 1 1 auto;
+}
+
+.main-menu .iw-main-menu ul.iw-nav-menu li a img {
+    display: inline-block;
+}
+
+.main-menu .iw-main-menu ul.iw-nav-menu li a img.hovered-image {
+    display: none;
+}
+  

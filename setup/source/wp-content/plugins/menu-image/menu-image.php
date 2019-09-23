@@ -533,7 +533,12 @@ class Menu_Image_Plugin {
 				$hover_image_src = wp_get_attachment_image_src( $item->thumbnail_hover_id, $image_size );
 				$margin_size     = $hover_image_src[1];
 				$image           = "<span class='menu-image-hover-wrapper'>";
-				$image .= wp_get_attachment_image( $item->thumbnail_id, $image_size, false, "class=menu-image {$class}" );
+				$image .= wp_get_attachment_image( $item->thumbnail_id, $image_size, false, array(
+					'class' 	=> "menu-image {$class}",
+					'width'		=> '64px',
+					'height'	=> '64px'
+					) 
+				);
 				$image .= wp_get_attachment_image(
 					$item->thumbnail_hover_id, $image_size, false, array(
 						'class' => "hovered-image {$class}",
