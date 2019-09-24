@@ -667,7 +667,7 @@ class Menu_Image_Plugin {
 	}
 
 	public function menu_image_hover_customization() {
-		wp_enqueue_script( 'menu-image-hover-customization', plugins_url( '/includes/js/menu-image-hover-customization.js', __FILE__ ), array( 'jquery' ), '1.0.0' );
+		wp_enqueue_script( 'menu-image-hover-customization', plugins_url( '/includes/js/menu-image-hover-customization.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 	}
 
 	/**
