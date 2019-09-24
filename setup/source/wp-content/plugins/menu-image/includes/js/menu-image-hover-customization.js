@@ -18,15 +18,15 @@
       });
     });
 
-    var menu_image = $(".menu-image-hover-wrapper .menu-image").each(function(index) {
-		$(this).css({ height: '0', width: '0' });
-		var closest_sub_menu = $(this).closest("ul.sub-menu");
-		var image_title = closest_sub_menu.find('.menu-image-title');
+    var menu_image = $(".menu-image-hover-wrapper .menu-image, .menu-image").each(function(index) {
+      $(this).css({ height: '0', width: '0' });
+      var closest_sub_menu = $(this).closest("ul.sub-menu");
+      var image_title = closest_sub_menu.find('.menu-image-title');
 
-		$(this).css ({
-			height: image_title.height(),
-			width: 'auto'
-		});
+      $(this).css ({
+        height: image_title.height(),
+        width: 'auto'
+      });
     });
   });
 })(jQuery);
