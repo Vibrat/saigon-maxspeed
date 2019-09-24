@@ -12,6 +12,7 @@
             top: "0",
             height: closest_sub_menu.height(),
             width: "auto",
+            'max-width': 'none',
             border: "1px solid #333"
           });
         });
@@ -24,8 +25,9 @@
       var image_title = closest_sub_menu.find('.menu-image-title');
 
       $(this).css ({
+        'object-fit': 'cover',
         height: image_title.height(),
-        width: 'auto'
+        width: 'auto',
       });
     });
   });
