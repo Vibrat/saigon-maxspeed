@@ -819,7 +819,7 @@ a img.aligncenter {
     font-weight: 600;
     line-height: 38px;
     padding-right: 32px;
-    position: relative;
+    /* position: relative; */
 }
 .header .iw-main-menu .iw-nav-menu li.logo a{
     margin-top: 0;

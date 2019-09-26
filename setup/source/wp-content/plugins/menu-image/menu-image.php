@@ -569,6 +569,10 @@ class Menu_Image_Plugin {
 
 		}
 
+		// Add cover tag and display by css
+		$cover_tag = '<span class="menu-cover"></span>';
+		$title .= $cover_tag;
+		
 		return $title;
 	}
 
