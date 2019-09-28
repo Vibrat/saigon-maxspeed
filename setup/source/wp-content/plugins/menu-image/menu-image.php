@@ -356,6 +356,7 @@ class Menu_Image_Plugin {
 		$menu_image_settings = array(
 			'menu_item_image_size',
 			'menu_item_image_title_position',
+			'menu_item_image_action'
 		);
 		foreach ( $menu_image_settings as $setting_name ) {
 			if ( isset( $_POST[ $setting_name ][ $post_id ] ) && ! empty( $_POST[ $setting_name ][ $post_id ] ) ) {
@@ -379,6 +380,7 @@ class Menu_Image_Plugin {
 			$menu_image_settings = array(
 				'menu_item_image_size',
 				'menu_item_image_title_position',
+				'menu_item_image_action',
 				'thumbnail_id',
 				'thumbnail_hover_id',
 			);
@@ -441,6 +443,7 @@ class Menu_Image_Plugin {
 	 * @since 2.0
 	 */
 	public function menu_image_wp_setup_nav_menu_item( $item ) {
+		
 		if ( ! isset( $item->thumbnail_id ) ) {
 			$item->thumbnail_id = get_post_thumbnail_id( $item->ID );
 		}
@@ -452,6 +455,10 @@ class Menu_Image_Plugin {
 		}
 		if ( ! isset( $item->title_position ) ) {
 			$item->title_position = get_post_meta( $item->ID, '_menu_item_image_title_position', true );
+		}
+
+		if (! isset($item->image_action)) {
+			$item->image_action = get_post_meta( $item->ID, '_menu_item_image_action', true );
 		}
 
 		return $item;
@@ -532,8 +539,9 @@ class Menu_Image_Plugin {
 				$this->setUsedAttachments( $image_size, $item->thumbnail_hover_id );
 				$hover_image_src = wp_get_attachment_image_src( $item->thumbnail_hover_id, $image_size );
 				$margin_size     = $hover_image_src[1];
-				$action_url = isset($item->url) ? $item->url : '#';
-				$action_container = "<button class='menu-hovered-image-button read-more' href='" .addslashes($action_url) . "'>Experience</button>";
+				$action_url      = isset($item->url) ? $item->url : '#';
+				$action_title    = isset($item->image_action) ? $item->image_action : "Experience";
+				$action_container = "<button class='menu-hovered-image-button read-more' onclick=\"window.location.href='" .addslashes($action_url) . "';event.preventDefault();\">$action_title</button>";
 				$image            = "<span class='menu-image-hover-wrapper'>";
 				$image .= wp_get_attachment_image( $item->thumbnail_id, $image_size, false, array(
 					'class' 	=> "menu-image {$class}",
@@ -712,6 +720,7 @@ class Menu_Image_Plugin {
 			delete_post_meta( $menu_item_id, '_thumbnail_hover_id' );
 			delete_post_meta( $menu_item_id, '_menu_item_image_size' );
 			delete_post_meta( $menu_item_id, '_menu_item_image_title_position' );
+			delete_post_meta( $menu_item_id, '_menu_item_image_action' );
 		}
 	}
 
@@ -822,7 +831,16 @@ class Menu_Image_Plugin {
 					);
 				endforeach;
 				?>
-
+			</p>
+			<p class="description description-wide">
+				<label for="edit-menu-item-image-action-<?php echo $item_id; ?>"><?php _e( 'Image Button Text', 'menu-image' ); ?>
+					<br />
+					<input 	id="edit-menu-item-image-action-<?php echo $item_id; ?>"
+							type="text"
+							class="widefat edit-menu-item-image-action"
+							name="menu_item_image_action[<?php echo $item_id; ?>]" 
+							value="<?php echo get_post_meta( $item_id, '_menu_item_image_action', true ); ?>"/>
+				</label>
 			</p>
 		</div>
 
