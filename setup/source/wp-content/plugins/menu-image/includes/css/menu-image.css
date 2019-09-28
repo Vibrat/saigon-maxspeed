@@ -31,7 +31,8 @@
     width: 0;
     height: 0;
     top: 0;
-    background-color: black;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #0f0f0f;
     opacity: 0;
     transition: width 0.25s ease-in-out 0s, opacity 0.25s ease-in-out 0s, height 0.25s ease-in-out 0s;
 }
@@ -77,14 +78,20 @@
     display: inline-flex;
 }
 
-.main-menu .iw-main-menu ul.iw-nav-menu li a {
+.main-menu .iw-main-menu ul.iw-nav-menu li a, .st-menu .canvas-menu ul.sub-menu li a {
     display: flex !important;
     justify-content: space-between !important; 
 }
 
-.main-menu .iw-main-menu ul.iw-nav-menu li a span {
+.st-menu .canvas-menu ul.sub-menu li a span.menu-cover {
+    display: none;
+}
+
+.main-menu .iw-main-menu ul.iw-nav-menu li a span, .st-menu .canvas-menu ul.sub-menu li a span {
     display: inline-block;
     white-space: nowrap;
 }
+
+
 
   
