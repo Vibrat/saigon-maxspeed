@@ -532,7 +532,9 @@ class Menu_Image_Plugin {
 				$this->setUsedAttachments( $image_size, $item->thumbnail_hover_id );
 				$hover_image_src = wp_get_attachment_image_src( $item->thumbnail_hover_id, $image_size );
 				$margin_size     = $hover_image_src[1];
-				$image           = "<span class='menu-image-hover-wrapper'>";
+				$action_url = isset($item->url) ? $item->url : '#';
+				$action_container = "<button class='menu-hovered-image-button read-more' href='" .addslashes($action_url) . "'>Experience</button>";
+				$image            = "<span class='menu-image-hover-wrapper'>";
 				$image .= wp_get_attachment_image( $item->thumbnail_id, $image_size, false, array(
 					'class' 	=> "menu-image {$class}",
 					'width'		=> '64px',
@@ -545,13 +547,14 @@ class Menu_Image_Plugin {
 						'style' => "",
 					)
 				);
+				$image .= $action_container;
 				$image .= '</span>';
 			} elseif ( $item->thumbnail_id ) {
 				$image = wp_get_attachment_image( $item->thumbnail_id, $image_size, false, "class=menu-image {$class}" );
 			}
 			$none  = ''; // Sugar.
 			$image = apply_filters( 'menu_image_img_html', $image );
-			$class .= ' menu-image-title'; 
+			$class .= ' menu-image-title'; 	
 
 			switch ( $position ) {
 				case 'hide':
@@ -566,7 +569,6 @@ class Menu_Image_Plugin {
 			}
 
 			$title = vsprintf( '%s<span class="%s">%s</span>%s', $item_args );
-
 		}
 
 		// Add cover tag and display by css

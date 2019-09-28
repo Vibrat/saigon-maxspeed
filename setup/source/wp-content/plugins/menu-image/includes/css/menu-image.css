@@ -11,6 +11,23 @@
     transition: opacity 0.25s ease-in-out 0s;
 }
 
+.menu-image-hover-wrapper button.menu-hovered-image-button {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    color: #fff;
+    display: inline-block;
+    padding: 2px 16px;
+    border: 2px solid #fff;
+    background-color: transparent;
+}
+.menu-image-hover-wrapper button.menu-hovered-image-button:hover { 
+    background-color: #009fd7;
+    border-color: #009fd7;
+    transition: all 0.25s ease-in-out 0s;
+}
+
+
 .menu-item:hover > .menu-image-hovered > .menu-image-hover-wrapper > img.menu-image {
     opacity: 1;
     display: block;
@@ -19,6 +36,11 @@
 .menu-item:hover > .menu-image-hovered > .menu-image-hover-wrapper > img.hovered-image {
     opacity: 1;
     display: inline-block;
+    transition: all 0.25s ease-in-out 0s;
+}
+
+.menu-item:hover > .menu-image-hovered > .menu-image-hover-wrapper > button.menu-hovered-image-button {
+    opacity: 1;
 }
 
 .main-menu .iw-main-menu ul.iw-nav-menu li a span.menu-image-hover-wrapper {

@@ -30,6 +30,16 @@
               border: "1px solid #333"
             });
           });
+
+          var action_button =  $(this).siblings('.menu-hovered-image-button:first');
+          action_button.css({
+            display: "block",
+            position: "absolute",
+            left: `calc(100% + ${(menu_container_width - sub_menu_count * 250)/2 - action_button.width() /2}px`,
+            bottom: '18px',
+            'z-index': 1,
+            "max-width": "none",
+          })
         }
       );
     });
