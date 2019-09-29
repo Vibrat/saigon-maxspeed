@@ -27,6 +27,10 @@
     transition: all 0.25s ease-in-out 0s;
 }
 
+.st-menu .menu-image-hover-wrapper button.menu-hovered-image-button {
+    display: none;
+}
+
 
 .menu-item:hover > .menu-image-hovered > .menu-image-hover-wrapper > img.menu-image {
     opacity: 1;
