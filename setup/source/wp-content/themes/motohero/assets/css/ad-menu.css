@@ -1,0 +1,22 @@
+.ad-menu {
+    position: absolute;
+    width: 80%;
+    margin: 24px auto auto auto;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    background-color: black;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 24px 0 #009fd7;
+    box-shadow: 0 6px 24px 0 #009fd7;
+}
+
+.ad-menu > ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+
+.ad-menu > ul li a {
+    font-weight: bold;
+} 

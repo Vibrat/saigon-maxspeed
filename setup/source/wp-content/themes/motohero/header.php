@@ -24,18 +24,13 @@ include(get_template_directory() . '/framework/inc/initvars.php');
 <body id="page-top" <?php body_class(); ?>>
 
 <div class="wrapper st-body <?php if($inwave_post_option['slide-id']) echo 'has-slider';?>" <?php if($inwave_post_option['inwave_background_color_page'])  echo 'style="background: '.$inwave_post_option['inwave_background_color_page'].';"';?>>
-    <?php
-    get_template_part( 'blocks/canvas-menu');
-    ?>
-    <?php
-        get_template_part( 'headers/header-' . $inwave_post_option['header-option']);
-    ?>
+    <?php get_template_part( 'blocks/canvas-menu'); ?>
+    <?php wp_nav_menu(array( 'theme_location' => 'ad-menu','container_class' => 'ad-menu' ) ); ?>
+    <?php get_template_part( 'headers/header-' . $inwave_post_option['header-option']); ?>
     <?php if ($inwave_post_option['slide-id']) { ?>
         <div class="slide-container <?php echo esc_attr($inwave_post_option['slide-id'])?>">
             <?php putRevSlider($inwave_post_option['slide-id']); ?>
         </div>
     <?php } ?>
-    <?php
-        get_template_part( 'blocks/page-heading');
-    ?>
+    <?php get_template_part( 'blocks/page-heading'); ?>
 

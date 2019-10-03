@@ -15,7 +15,8 @@ require_once(get_template_directory() . '/framework/importer/importer.php');
 
 
 /* Custom nav */
-require_once get_template_directory().'/framework/inc/custom-nav.php';
+require_once get_template_directory() . '/framework/inc/custom-nav.php';
+require_once get_template_directory() . '/framework/inc/ads-menu.php';
 
 /* Customizer theme */
 require_once get_template_directory() . '/framework/inc/customizer.php';
