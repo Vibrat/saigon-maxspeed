@@ -1084,7 +1084,7 @@ a img.aligncenter {
 }
 /**  Sticky header  ***/
 .sticky-logo{
-    display:none;
+    display: none !important;
 }
 .header.clone .main-logo{
     display: none;
