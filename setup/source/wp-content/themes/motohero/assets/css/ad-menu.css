@@ -4,11 +4,12 @@
     margin: 24px auto auto auto;
     left: 0;
     right: 0;
-    z-index: 1000; 
+    z-index: 1000;
     background-color: black;
     border-radius: 4px;
     -webkit-box-shadow: 0 6px 24px 0 #009fd7;
     box-shadow: 0 6px 24px 0 #009fd7;
+    opacity: 0.87;
 }
 
 .ad-menu > ul {
@@ -19,4 +20,11 @@
 
 .ad-menu > ul li a {
     font-weight: bold;
-} 
+    display: flex;
+    align-items: center;
+}
+.ad-menu > ul > li > a > span {
+    display: flex;
+    height: 46px;
+    align-items: center;
+}
