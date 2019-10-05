@@ -76,12 +76,14 @@
 
 .ad-menu > ul > li ul {
     display: none;
+    transition: all 0.5s ease-in-out;
 }
 
 .ad-menu ul li {
     padding: 16px 24px;
     text-transform: uppercase;
     border-left: 3px solid transparent;
+    transition: all 0.5s ease-in-out;
 }
 
 .ad-menu > ul > li:last-child {
@@ -125,6 +127,7 @@
     display: initial;
     width: 100%;
     background-color: black;
+    transition: all 0.5s ease-in-out;
 }
 
 .ad-menu > ul > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
@@ -132,9 +135,11 @@
     padding-left: 0;
     text-transform: capitalize;
     border-left: 0;
+    transition: all 0.5s ease-in-out;
 }
 
 .ad-menu > ul > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li ul.sub-menu {
     display: none;
+    transition: all 0.5s ease-in-out;
 }
 
