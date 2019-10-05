@@ -1,7 +1,7 @@
 .ad-menu {
-    position: absolute;
-    width: 80%;
-    margin: 24px auto auto auto;
+    position: fixed;
+    width: 0;
+    margin: -100% auto auto auto;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -9,13 +9,24 @@
     border-radius: 4px;
     -webkit-box-shadow: 0 6px 24px 0 #009fd7;
     box-shadow: 0 6px 24px 0 #009fd7;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+}
+
+.ad-menu.active {
     opacity: 0.87;
+    display: initial;
+    margin: 24px auto auto auto;
+    transition: all 0.5s ease-in-out;
+    width: 80%;
+    height: auto;
 }
 
 .ad-menu > ul {
     display: flex;
     justify-content: space-between;
     padding: 16px 24px;
+    top: 100%;
 }
 
 .ad-menu > ul li a {

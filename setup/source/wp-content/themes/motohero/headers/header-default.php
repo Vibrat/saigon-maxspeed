@@ -10,7 +10,7 @@ if(function_exists('WC')) {
 }
 
 ?>
-<div class="header header-default <?php if($inwave_theme_option['header_sticky'] == 1) { echo 'header-sticky' ;} ?> ">
+<div class="header header-default">
     <!-- the header -->
 
     <div class="header-top">
