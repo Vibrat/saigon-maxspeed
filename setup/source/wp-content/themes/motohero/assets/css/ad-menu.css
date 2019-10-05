@@ -6,15 +6,38 @@
     right: 0;
     z-index: 1000;
     background-color: black;
-    border-radius: 4px;
     -webkit-box-shadow: 0 6px 24px 0 #009fd7;
     box-shadow: 0 6px 24px 0 #009fd7;
     opacity: 0;
     transition: all 1.5s ease-in-out;
 }
 
+@media screen and (max-width: 768px) {
+    .ad-menu.active, .ad-menu-cover.active {
+        display: none !important;
+    }
+}
+
+.ad-menu-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.67);
+}
+
+.ad-menu-cover.active {
+    z-index: 999;
+    display: initial;
+}
+
 .ad-menu.active {
-    opacity: 0.87;
+    opacity: 1;
     display: initial;
     margin: 24px auto auto auto;
     transition: all 0.5s ease-in-out;
@@ -22,20 +45,96 @@
     height: auto;
 }
 
+.ad-menu.active:hover { 
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 .ad-menu > ul {
     display: flex;
     justify-content: space-between;
-    padding: 16px 24px;
     top: 100%;
+    position: relative;
 }
 
 .ad-menu > ul li a {
-    font-weight: bold;
+    color: #d8d8d8;
+    font-size: 13px;
     display: flex;
     align-items: center;
 }
+
+.ad-menu > ul li a:hover {
+    color: #fff;
+}
+
 .ad-menu > ul > li > a > span {
     display: flex;
     height: 46px;
     align-items: center;
 }
+
+.ad-menu > ul > li ul {
+    display: none;
+}
+
+.ad-menu ul li {
+    padding: 16px 24px;
+    text-transform: uppercase;
+    border-left: 3px solid transparent;
+}
+
+.ad-menu > ul > li:last-child {
+    -webkit-box-shadow: 0 6px 24px 0 #009fd7;
+    box-shadow: 0 6px 24px 0 #009fd7;
+    z-index: 1;
+}
+
+.ad-menu ul li:hover {
+    border-left-color: #009fd7;
+}
+
+.ad-menu > ul > li:hover ul.sub-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+}
+
+.ad-menu > ul li:hover > ul.sub-menu {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    display: flex;
+    width: 100%;
+    background-color: black;
+    justify-content: space-between;
+}
+
+.ad-menu > ul > li:hover > ul.sub-menu {
+    justify-content: flex-start;
+}
+
+.ad-menu > ul > li > ul.sub-menu > li > ul.sub-menu > li > a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ad-menu > ul > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    display: initial;
+    width: 100%;
+    background-color: black;
+}
+
+.ad-menu > ul > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li {
+    padding: 4px 0;
+    padding-left: 0;
+    text-transform: capitalize;
+    border-left: 0;
+}
+
+.ad-menu > ul > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li ul.sub-menu {
+    display: none;
+}
+

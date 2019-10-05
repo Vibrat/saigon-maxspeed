@@ -26,7 +26,8 @@ include(get_template_directory() . '/framework/inc/initvars.php');
 <div class="wrapper st-body <?php if($inwave_post_option['slide-id']) echo 'has-slider';?>" <?php if($inwave_post_option['inwave_background_color_page'])  echo 'style="background: '.$inwave_post_option['inwave_background_color_page'].';"';?>>
     <?php
         if (has_nav_menu('ad-menu') && $inwave_theme_option['header_sticky'] == 1) {
-            wp_nav_menu(array( 'theme_location' => 'ad-menu','container_class' => 'ad-menu' ) );
+            wp_nav_menu(array( 'theme_location' => 'ad-menu','container_class' => 'ad-menu' ));
+            echo '<div class="ad-menu-cover"></div>';
         }
     ?>
     <?php get_template_part( 'blocks/canvas-menu'); ?>
