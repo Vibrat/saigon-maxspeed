@@ -72,7 +72,7 @@
       .each(function(index) {
         
         var cover_container = $(this).find("li a span.menu-cover:first");
-        var contain_width = $(this).closest(".iw-nav-menu").width();
+        var contain_width = $(this).closest(".iw-main-menu").width();
         var sub_menu_level1 = $(this).find("ul.sub-menu:first");
         var cover_container_active = false;
 
