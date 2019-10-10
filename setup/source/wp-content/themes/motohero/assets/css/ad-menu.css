@@ -86,6 +86,10 @@
     transition: all 0.5s ease-in-out;
 }
 
+.ad-menu ul li a button.read-more {
+    display: none !important;
+}
+
 .ad-menu > ul > li:last-child {
     -webkit-box-shadow: 0 6px 24px 0 #009fd7;
     box-shadow: 0 6px 24px 0 #009fd7;
