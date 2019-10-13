@@ -144,7 +144,7 @@ a{
 .portfolio-relate .port-detail a:hover, .button-effect2 .theme-bg_hover .button-text:after, .product-detail .new-label:before {
     background: #009fd7;
 }
-.iw-button .iw-button-text.theme-bg_hover:hover a, body .woocommerce-variation-add-to-cart button.single_add_to_cart_button {
+.iw-button .iw-button-text.theme-bg_hover:hover a, body .woocommerce-variation-add-to-cart button.single_add_to_cart_button, body .woocommerce-variation-add-to-cart a.single_add_to_cart_button {
     background: #009fd7 !important;
 }
 .actions .add_to_cart_button:hover, .woo-cart-coupon .button, .update-cart.actions .button, .iw-table ul li:hover div, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover,

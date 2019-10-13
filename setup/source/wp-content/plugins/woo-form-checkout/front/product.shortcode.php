@@ -16,7 +16,15 @@ function reg_product_checkout_by_form($atts= [], $content = null, $tag = '') {
   
   if ($product) {
     ob_start();
-    return get_the_post_thumbnail($product->get_id(), 'img-product');
+    // get featured image
+    $content = '<div style="text-align:center;">';
+    $content .= get_the_post_thumbnail($product->get_id(), 'img-product');
+    
+    // get title
+    $content .= '<h1>' . $product->get_title() .'</h1>';
+    $content .= '</div>';
+
+    return $content;
   }
 
   return false;

@@ -23,6 +23,8 @@ if (!$product || !$product->is_visible()) {
 // Extra post classes
 $classes = array('product-image-wrapper','woo-list-product-grid');
 
+$is_checkout_by_form    = get_post_meta( $product->get_id(), 'is-checkout-by-form', true );
+$checkout_by_form_slug  = get_post_meta( $product->get_id(), 'checkout-by-form-slug', true);
 $rating_count = $product->get_rating_count();
 $review_count = $product->get_review_count();
 $average      = $product->get_average_rating();
@@ -80,8 +82,19 @@ $average      = $product->get_average_rating();
                     </div>
                 <?php endif; ?>
                 <div class="add-cart">
+                    <?php if($is_checkout_by_form != '1' || $checkout_by_form_slug == ''): ?>
                     <a class="add_to_cart_button product_type_simple" data-product_id="<?php echo esc_attr($product->get_id()) ?>" data-product_sku="<?php echo esc_attr($product->get_sku()) ?>" href="<?php echo esc_url($product->add_to_cart_url())?>" data-quantity="1"><span><?php echo esc_html__( 'Add to cart', 'motohero' ) ?></span>
                     </a>
+                    <?php else: ?>
+                    <a 
+                        class="add_to_cart_button product_type_simple" 
+                        href="<?php echo esc_url(add_query_arg(array(
+                                    'page_id' 		=> $checkout_by_form_slug,
+                                    'product_id'	=> $product->get_id()
+                                        ), null) )?>">
+                        <span><?php echo esc_html__( 'Add to cart', 'motohero' ) ?></span>
+                    </a>
+                    <?php endif; ?>
                 </div>
                 <div style="clear: both"></div>
             </div>

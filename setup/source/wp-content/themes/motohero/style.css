@@ -2508,7 +2508,9 @@ body .add-to-box {
 	padding-top: 12px;
     margin-bottom: 30px;
 }
-body button.single_add_to_cart_button {
+body button.single_add_to_cart_button, body a.single_add_to_cart_button {
+    display: flex !important;
+    align-items: center !important;
 	line-height: 36px;
 	height: 36px;
 	color: #ffffff !important;
