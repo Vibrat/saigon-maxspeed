@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-global $product;
+global $product; global $post;
 
 if ( ! $product->is_purchasable() ) {
 	return;
@@ -21,6 +21,8 @@ if ( ! $product->is_purchasable() ) {
 
 <?php
 	// Availability
+	$is_checkout_by_form    = get_post_meta( $product->get_id(), 'is-checkout-by-form', true );
+	$checkout_by_form_slug  = get_post_meta( $product->get_id(), 'checkout-by-form-slug', true);
 	$availability      = $product->get_availability();
 	$availability_html = empty( $availability['availability'] ) ? '' : '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
 
@@ -43,9 +45,20 @@ if ( ! $product->is_purchasable() ) {
 	 	?>
 
 	 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" />
-
-	 	<button type="submit" class="single_add_to_cart_button button alt btn-cart theme-bg"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
-
+		<?php
+			if ($is_checkout_by_form == '1' && $checkout_by_form_slug != '') {
+				echo  '<a class="single_add_to_cart_button button alt btn-cart theme-bg"';
+				echo 	'href="/' . add_query_arg(array(
+					'page_id' 		=> $checkout_by_form_slug,
+					'product_id'	=> $product->get_id()
+				), null) . '"';
+				echo 	'>' . esc_html($product->single_add_to_cart_text())  . '</a>';
+			} else {
+				echo '<button type="submit" class="single_add_to_cart_button button alt btn-cart theme-bg">';
+				echo esc_html($product->single_add_to_cart_text());
+				echo '</button>';
+			}
+		?>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
     <?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
