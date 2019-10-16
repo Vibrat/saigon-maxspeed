@@ -21,7 +21,7 @@
     border: 2px solid #fff;
     background-color: transparent;
 }
-.menu-image-hover-wrapper button.menu-hovered-image-button:hover { 
+.menu-image-hover-wrapper button.menu-hovered-image-button:hover {
     background-color: #009fd7;
     border-color: #009fd7;
     transition: all 0.25s ease-in-out 0s;
@@ -71,6 +71,25 @@
     display: none;
 }
 
+
+.iw-menu-none-mobile .menu-image-title {
+   min-height: 70px;
+}
+
+.iw-menu-none-mobile ul.iw-nav-menu li.menu-item a i.icon-arrow,
+.iw-menu-none-mobile ul.iw-nav-menu li.menu-item a .menu-image-title  {
+    display: flex !important;
+    align-items: center;
+}
+
+.iw-menu-none-mobile ul.iw-nav-menu  > li.menu-item > a > i.icon-arrow {
+    display: none !important;
+}
+
+.iw-menu-none-mobile ul.iw-nav-menu  > li.menu-item > a > span.menu-image-title {
+    min-height: auto;
+}
+
 .menu-image-title-after.menu-image-not-hovered img,
 .menu-image-hovered.menu-image-title-after .menu-image-hover-wrapper, .menu-image-title-before.menu-image-title {
     padding-right: 10px;
@@ -106,7 +125,7 @@
 
 .main-menu .iw-main-menu ul.iw-nav-menu li a, .st-menu .canvas-menu ul.sub-menu li a {
     display: flex !important;
-    justify-content: space-between !important; 
+    justify-content: space-between !important;
 }
 
 .st-menu .canvas-menu ul.sub-menu li a span.menu-cover {
@@ -117,7 +136,3 @@
     display: inline-block;
     white-space: nowrap;
 }
-
-
-
-  

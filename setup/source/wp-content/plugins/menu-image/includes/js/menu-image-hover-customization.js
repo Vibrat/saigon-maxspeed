@@ -2,7 +2,7 @@
   $(document).ready(function() {
     // Css for hovered-image
     var hovered_imgs = $(".hovered-image").each(function(index, img) {
-      
+
       // Prepare elements
       var closest_sub_menu = $(img).closest("ul.sub-menu");
       var current_menu_item = $(img).closest("li.menu-item");
@@ -70,7 +70,7 @@
     var menu_items = $(".iw-main-menu .iw-nav-menu")
       .children()
       .each(function(index) {
-        
+
         var cover_container = $(this).find("li a span.menu-cover:first");
         var contain_width = $(this).closest(".iw-main-menu").width();
         var sub_menu_level1 = $(this).find("ul.sub-menu:first");
@@ -82,7 +82,7 @@
             () => {
 
               if (!cover_container_active) {
-                
+
                 cover_container.css({
                   width: `${contain_width - sub_menu_level1.width()}px`,
                   height: sub_menu_level1.height(),
@@ -91,7 +91,7 @@
 
                 cover_container_active = true;
               }
-              
+
             }
           );
         });
@@ -107,7 +107,7 @@
                 });
 
                 cover_container_active = false;
-              } 
+              }
             }
           );
         });

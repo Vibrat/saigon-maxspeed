@@ -207,7 +207,7 @@ class Menu_Image_Plugin {
 		if( ! isset( $_POST['menu_image_form'] ) || ! wp_verify_nonce( $_POST['menu_image_form'], 'menu_image_options_update' ) ) { ?>
 			<div class="error">
 			   <p><?php _e( 'Sorry, your nonce was not correct. Please try again.', 'menu-image' );?></p>
-			</div> 
+			</div>
 			<?php
 		} else {
 
@@ -240,7 +240,7 @@ class Menu_Image_Plugin {
 			} else { ?>
 				<div class="error">
 					<p><?php _e( 'Sorry, your image size format is not correct. Please try again.', 'menu-image' );?></p>
-				</div> 
+				</div>
 				<?php
 			}
 		}
@@ -443,7 +443,7 @@ class Menu_Image_Plugin {
 	 * @since 2.0
 	 */
 	public function menu_image_wp_setup_nav_menu_item( $item ) {
-		
+
 		if ( ! isset( $item->thumbnail_id ) ) {
 			$item->thumbnail_id = get_post_thumbnail_id( $item->ID );
 		}
@@ -547,7 +547,7 @@ class Menu_Image_Plugin {
 					'class' 	=> "menu-image {$class}",
 					'width'		=> '64px',
 					'height'	=> '64px'
-					) 
+					)
 				);
 				$image .= wp_get_attachment_image(
 					$item->thumbnail_hover_id, $image_size, false, array(
@@ -562,7 +562,7 @@ class Menu_Image_Plugin {
 			}
 			$none  = ''; // Sugar.
 			$image = apply_filters( 'menu_image_img_html', $image );
-			$class .= ' menu-image-title'; 	
+			$class .= ' menu-image-title';
 
 			switch ( $position ) {
 				case 'hide':
@@ -577,12 +577,15 @@ class Menu_Image_Plugin {
 			}
 
 			$title = vsprintf( '%s<span class="%s">%s</span>%s', $item_args );
+		} else {
+			$class = 'menu-image-title'; // sugar coated
+			$title = vsprintf('<span class="%s">%s</span>', array($class, $title));
 		}
 
 		// Add cover tag and display by css
 		$cover_tag = '<span class="menu-cover"></span>';
 		$title .= $cover_tag;
-		
+
 		return $title;
 	}
 
@@ -798,7 +801,7 @@ class Menu_Image_Plugin {
 							class="widefat edit-menu-item-image-size"
 							name="menu_item_image_size[<?php echo $item_id; ?>]">
 						<option value='full' <?php echo $image_size == 'full' ? ' selected="selected"' : '' ?>><?php _e( 'Original Size', 'menu-image' ); ?></option>
-						<?php 
+						<?php
 						foreach ( get_intermediate_image_sizes() as $size ) :
 							printf(
 								"<option value='%s'%s>%s</option>\n",
@@ -838,7 +841,7 @@ class Menu_Image_Plugin {
 					<input 	id="edit-menu-item-image-action-<?php echo $item_id; ?>"
 							type="text"
 							class="widefat edit-menu-item-image-action"
-							name="menu_item_image_action[<?php echo $item_id; ?>]" 
+							name="menu_item_image_action[<?php echo $item_id; ?>]"
 							value="<?php echo get_post_meta( $item_id, '_menu_item_image_action', true ); ?>"/>
 				</label>
 			</p>
