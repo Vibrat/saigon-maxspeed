@@ -45,7 +45,7 @@
     height: auto;
 }
 
-.ad-menu.active:hover { 
+.ad-menu.active:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -146,4 +146,3 @@
     display: none;
     transition: all 0.5s ease-in-out;
 }
-
