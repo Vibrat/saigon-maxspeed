@@ -7,7 +7,7 @@
       var closest_sub_menu = $(img).closest("ul.sub-menu");
       var current_menu_item = $(img).closest("li.menu-item");
       var sub_menu_count = $(img).parentsUntil(".iw-main-menu", ".sub-menu").length;
-      var menu_container_width = $(img).closest(".iw-main-menu").width();
+      var menu_container_width = $(document).width();
       var action_button =  $(img).siblings('.menu-hovered-image-button:first');
 
       // Reset
@@ -72,7 +72,7 @@
       .each(function(index) {
 
         var cover_container = $(this).find("li a span.menu-cover:first");
-        var contain_width = $(this).closest(".iw-main-menu").width();
+        var contain_width   = $(document).width();
         var sub_menu_level1 = $(this).find("ul.sub-menu:first");
         var cover_container_active = false;
 

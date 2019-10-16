@@ -19,13 +19,13 @@ MAIN CSS FILE OF MOTOHERO TEMPLATE
 1. Common style
 2. Panel
         + Panel setting
-3. Layout 
+3. Layout
 4. Header
         + Header default
         + Header v2
         + Header v3
         + Header v4
-		+ Sticky header 
+		+ Sticky header
 5. Content
         + Slider
         + Page heading
@@ -63,7 +63,7 @@ html body {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: 400;    
+    font-weight: 400;
 	margin-bottom: 15px;
     margin-top: 15px;
 }
@@ -671,7 +671,6 @@ a img.aligncenter {
 }
 
 .header .iw-menu-none-mobile {
-    position: relative;
     z-index: 0;
 }
 .header .iw-button-toggle {
@@ -748,9 +747,9 @@ a img.aligncenter {
     display: block;
 }
 
-.header .iw-main-menu {
+/* .header .iw-main-menu {
     position: relative;
-}
+} */
 
 .header .iw-main-menu .iw-nav-menu > li,
 .header .iw-nav-menu > ul > li {
@@ -3000,7 +2999,7 @@ body button.single_add_to_cart_button, body a.single_add_to_cart_button {
 .woocommerce-cart .product-cart .cart-collaterals .cart_totals table td {
     text-align: right;
 }
-.woocommerce-cart .product-cart .cart-collaterals .cart_totals table td, 
+.woocommerce-cart .product-cart .cart-collaterals .cart_totals table td,
 .woocommerce-cart .product-cart .cart-collaterals .cart_totals table th {
     border-bottom: 1px solid #353535;
     border-top: 0 none;
@@ -3037,8 +3036,8 @@ body button.single_add_to_cart_button, body a.single_add_to_cart_button {
 .woo-cart-coupon .button:hover{
 	background:#474747!important;
 }
-.woocommerce div.woocommerce-error, 
-.woocommerce div.woocommerce-info, 
+.woocommerce div.woocommerce-error,
+.woocommerce div.woocommerce-info,
 .woocommerce div.woocommerce-message{
 	color:#838383;
 }
@@ -3058,9 +3057,9 @@ div.woocommerce .woocommerce-error a,
     padding: 8px 20px 0;
     text-align: right;
 }
-.woocommerce-cart .product-cart .wc-proceed-to-checkout a.checkout-button, 
-.woocommerce .calc_shipping_postcode_wap .button, .woocommerce .checkout-box-login button.button, 
-.woocommerce .checkout-box-coupon button.button, 
+.woocommerce-cart .product-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce .calc_shipping_postcode_wap .button, .woocommerce .checkout-box-login button.button,
+.woocommerce .checkout-box-coupon button.button,
 div.woocommerce-message a.wc-forward {
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -3273,7 +3272,7 @@ div.woocommerce-message a.wc-forward {
 .checkout-box-bill .box {
     padding-top: 15px;
 }
-.woocommerce form .checkout-box-ship-address input.input-text, 
+.woocommerce form .checkout-box-ship-address input.input-text,
 .woocommerce form .checkout-box-bill input.input-text {
     border: 1px solid #353535;
     border-radius: 3px;
@@ -3281,7 +3280,7 @@ div.woocommerce-message a.wc-forward {
     line-height: 28px;
     padding: 0 7px;
 }
-.woocommerce form .checkout-box-ship-address .form-row textarea.input-text, 
+.woocommerce form .checkout-box-ship-address .form-row textarea.input-text,
 .woocommerce form .checkout-box-bill .form-row textarea.input-text {
     border: 1px solid #353535;
     border-radius: 3px;
@@ -3295,11 +3294,11 @@ div.woocommerce-message a.wc-forward {
     height: 30px;
     line-height: 28px;
 }
-.woocommerce form .checkout-box-ship-address .form-row.woocommerce-invalid .select2-container, 
-.woocommerce form .checkout-box-ship-address .form-row.woocommerce-invalid input.input-text, 
-.woocommerce form .checkout-box-ship-address .form-row.woocommerce-invalid select, 
-.woocommerce form .checkout-box-bill .form-row.woocommerce-invalid .select2-container, 
-.woocommerce form .checkout-box-bill .form-row.woocommerce-invalid input.input-text, 
+.woocommerce form .checkout-box-ship-address .form-row.woocommerce-invalid .select2-container,
+.woocommerce form .checkout-box-ship-address .form-row.woocommerce-invalid input.input-text,
+.woocommerce form .checkout-box-ship-address .form-row.woocommerce-invalid select,
+.woocommerce form .checkout-box-bill .form-row.woocommerce-invalid .select2-container,
+.woocommerce form .checkout-box-bill .form-row.woocommerce-invalid input.input-text,
 .woocommerce form .checkout-box-bill .form-row.woocommerce-invalid select {
     border-color: #ff0000;
 }
@@ -3313,8 +3312,8 @@ div.woocommerce-message a.wc-forward {
     line-height: 24px;
     margin: 0 0 9px;
 }
-.select2-drop-active, .select2-drop.select2-drop-above.select2-drop-active, 
-.select2-dropdown-open.select2-drop-above .select2-choice, 
+.select2-drop-active, .select2-drop.select2-drop-above.select2-drop-active,
+.select2-dropdown-open.select2-drop-above .select2-choice,
 .select2-dropdown-open.select2-drop-above .select2-choices {
     border-color: #353535;
 }
@@ -3504,7 +3503,7 @@ div.product-check-out{
 	background:url("assets/images/addcart-icon-hover.png") center center no-repeat scroll #d4094c!important;
 }
 
-.actions .add_to_cart_button.cart-added, 
+.actions .add_to_cart_button.cart-added,
 .add_to_cart_button.cart-adding,
 .add_to_cart_button.cart-adding:hover{
 	background-image:none!important;
