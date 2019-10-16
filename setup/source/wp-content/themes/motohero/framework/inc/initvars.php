@@ -54,13 +54,18 @@ else{
 }
 
 // get menu for mobile
-
 if(!isset($inwave_theme_option['canvas_menu'])){
     $inwave_post_option['canvas-menu'] = 'primary';
 }else{
     $inwave_post_option['canvas-menu'] = $inwave_theme_option['canvas_menu'];
 }
 
+// get ad menu shadow color
+if(!isset($inwave_theme_option['ad_menu_shadow'])){
+    $inwave_post_option['ad-menu-shadow'] = 'primary';
+}else{
+    $inwave_post_option['ad-menu-shadow'] = $inwave_theme_option['ad_menu_shadow'];
+}
 
 // get heading background
 $inwave_post_option['pageheading_bg'] = get_post_meta( $postId, 'inwave_pageheading_bg', true );

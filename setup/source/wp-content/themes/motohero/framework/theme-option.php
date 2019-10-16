@@ -126,7 +126,7 @@ if (!function_exists('inwave_of_options')) {
             "id" => "retina_support",
             "std" => 0,
             "type" => "checkbox");
-			
+
 		$inwave_of_options[] = array("name" => esc_html__("Google API",'motohero'),
             "desc" => esc_html__('Use for process data from google service. Eg: map, photo, video... To get Google api, you can access via <a href="https://console.developers.google.com/" target="_blank">here</a>.','motohero'),
             "id" => "google_api",
@@ -430,6 +430,10 @@ if (!function_exists('inwave_of_options')) {
             "id" => "canvas_menu",
             "type" => "select",
             "options" => $menuArr);
+        $inwave_of_options[] = array( "name" => esc_html__("Advertisement Menu", 'motohero'),
+            "desc" => esc_html__("Pick a color for Menu shadow", 'motohero'),
+            "id" => "ad_menu_shadow",
+            "type" => "text");
         $inwave_of_options[] = array("name" => esc_html__("Show form search",'motohero'),
             "desc" => esc_html__("Check to show form search",'motohero'),
             "id" => "show_search_form",
