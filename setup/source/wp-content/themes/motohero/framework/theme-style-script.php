@@ -55,7 +55,7 @@ if( !function_exists( 'inwave_load_js' ) ) {
         wp_enqueue_script('navgoco', get_template_directory_uri() . '/assets/js/jquery.navgoco.js', array(), $theme_info->get('Version'), true);
         wp_enqueue_script('off-canvas', get_template_directory_uri() . '/assets/js/off-canvas.js', array(), $theme_info->get('Version'), true);
 		wp_enqueue_script('wc-single-product', plugin_dir_url('woocommerce/assets/js/frontend/single-product.min.js').'/single-product.min.js', array(), $theme_info->get('Version'), true);
-		
+
 
         /** load panel */
         if ($inwave_theme_option['show_setting_panel']) {
@@ -105,9 +105,9 @@ if( !function_exists( 'inwave_load_css' ) ) {
 
         $theme_info = wp_get_theme();
 		$template = get_template();
-		
 
-		
+
+
 		if ($inwave_theme_option['f_body']){
 			$gfont[urlencode($inwave_theme_option['f_body'])] = urlencode($inwave_theme_option['f_body']).':'.$inwave_theme_option['f_body_settings'];
 		}
@@ -120,7 +120,7 @@ if( !function_exists( 'inwave_load_css' ) ) {
 		if ($inwave_theme_option['f_headings'] && $inwave_theme_option['f_headings'] != '' && $inwave_theme_option['f_headings'] != $inwave_theme_option['f_body'] && $inwave_theme_option['f_headings'] != $inwave_theme_option['f_nav']){
 			if(!$inwave_theme_option['f_headings_settings']){
 				$inwave_theme_option['f_headings_settings'] = $inwave_theme_option['f_body_settings'];
-				
+
 			}
 			$gfont[urlencode($inwave_theme_option['f_headings'])] = urlencode($inwave_theme_option['f_headings']).':'.$inwave_theme_option['f_headings_settings'];
 		}
@@ -130,7 +130,8 @@ if( !function_exists( 'inwave_load_css' ) ) {
 			}
 		}
 
-		
+        wp_enqueue_style('custom-fonts', get_template_directory_uri() . '/assets/css/custom-fonts.css', array(), $theme_info->get('Version'));
+
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), $theme_info->get('Version'));
 
         wp_enqueue_style('select2', get_template_directory_uri() . '/assets/css/select2.min.css', array(), $theme_info->get('Version'));
@@ -138,7 +139,7 @@ if( !function_exists( 'inwave_load_css' ) ) {
         wp_enqueue_style('flexslider', get_template_directory_uri() . '/assets/css/flexslider.css', array(), $theme_info->get('Version'));
 
         wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/fonts/font-awesome/css/font-awesome.css', array(), $theme_info->get('Version'));
-        
+
         wp_register_style('custombox', get_template_directory_uri() . '/assets/css/custombox.min.css', array(), $theme_info->get('Version'));
 
         wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/fancybox/jquery.fancybox.css', array(), $theme_info->get('Version'));
