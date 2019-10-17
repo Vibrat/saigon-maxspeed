@@ -82,7 +82,7 @@ if (!function_exists('inwave_comment')) {
                     </div>
                     <!-- .comment-meta -->
 
-                    
+
 
                     <div class="commentRight">
                         <div class="content-cmt">
@@ -105,7 +105,7 @@ if (!function_exists('inwave_comment')) {
 
                         <?php edit_comment_link(esc_html__('Edit', 'motohero'), '<p class="edit-link">', '</p>'); ?>
                     </div>
-					
+
                     <!-- .comment-content -->
                     <div class="clear"></div>
                 </div>
@@ -1059,6 +1059,7 @@ if(!function_exists('inwave_get_googlefonts')){
             "Russo One" => esc_html__("Russo One", 'motohero'),
             "Ruthie" => esc_html__("Ruthie", 'motohero'),
             "Rye" => esc_html__("Rye", 'motohero'),
+            "svn-agency" => esc_html__("SVN Agency", 'motohero'),
             "Sacramento" => esc_html__("Sacramento", 'motohero'),
             "Sail" => esc_html__("Sail", 'motohero'),
             "Salsa" => esc_html__("Salsa", 'motohero'),

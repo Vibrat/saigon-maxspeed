@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'svn-agency';
+  src: url('../fonts/SVN-Agency-FB.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'svn-agency';
+  src: url('../fonts/SVN-Agency-FB-bold.ttf');
+  font-weight: bold;
+}
