@@ -1,16 +1,17 @@
 (function($) {
+
   $(document).ready(function() {
     // Css for hovered-image
     var hovered_imgs = $(".hovered-image").each(function(index, img) {
 
       // Prepare elements
-      var closest_sub_menu = $(img).closest("ul.sub-menu");
-      var current_menu_item = $(img).closest("li.menu-item");
-      var sub_menu_count = $(img).parentsUntil(".iw-main-menu", ".sub-menu").length;
+      var closest_sub_menu     = $(img).closest("ul.sub-menu");
+      var current_menu_item    = $(img).closest("li.menu-item");
+      var sub_menu_count       = $(img).parentsUntil(".iw-main-menu", ".sub-menu").length;
       var menu_container_width = $(img).closest(".iw-main-menu").width();
-      var action_button =  $(img).siblings('.menu-hovered-image-button:first');
+      var action_button        = $(img).siblings('.menu-hovered-image-button:first');
 
-      // Reset
+      // Reset display to prevent initial size inconsistent
       $(img).css({ display: "none" });
 
       // Sub-menu: Adding Animation
@@ -20,6 +21,7 @@
           let is_active = false; // boolean activation
           current_menu_item.hover(() => {
             if (!is_active) {
+
               $(img).css({
                 display: "block",
                 position: "absolute",
@@ -47,6 +49,7 @@
 
           current_menu_item.mouseleave(() => {
             if (is_active) {
+
               // Reset image
               $(img).css({
                 display: 'none',
@@ -66,16 +69,20 @@
       );
     });
 
-    // Styling for cover menu bar
+    // Styling for Cover Background and Sub-Menu Height
+    var header =  $(".header");
     var menu_items = $(".iw-main-menu .iw-nav-menu")
       .children()
       .each(function(index) {
 
-        var cover_container = $(this).find("li a span.menu-cover:first");
-        var contain_width = $(this).closest(".iw-main-menu").width();
-        var sub_menu_level1 = $(this).find("ul.sub-menu:first");
+        var cover_container        = $(this).find("li a span.menu-cover:first");
+        var contain_width          = $(this).closest(".iw-main-menu").width();
+        var sub_menu_level1        = $(this).find("ul.sub-menu").first();
         var cover_container_active = false;
 
+        sub_menu_level1.css('height', `calc(100vh - ${header.height()}px - 20px)`);
+
+        // Cover Background
         $(this).hover(() => {
           sub_menu_level1.on(
             "transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",
@@ -96,6 +103,7 @@
           );
         });
 
+        // Cover Background
         $(this).mouseleave(() => {
           sub_menu_level1.on(
             "transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",
@@ -117,6 +125,7 @@
     var menu_image = $(
       ".menu-image-hover-wrapper .menu-image, .menu-image"
     ).each(function(index) {
+
       $(this).css({ height: "0", width: "0" }); // reset dimension
       var image_title = $(this).closest("li").find(".menu-image-title");
       var is_height_not = image_title.height();
@@ -128,6 +137,7 @@
         width: "auto",
         "vertical-align": 'middle'
       });
+
     });
   });
 })(jQuery);
