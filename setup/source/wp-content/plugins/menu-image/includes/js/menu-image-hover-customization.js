@@ -80,7 +80,7 @@
         var sub_menu_level1        = $(this).find("ul.sub-menu").first();
         var cover_container_active = false;
 
-        sub_menu_level1.css('height', `calc(100vh - ${header.height()}px - 20px)`);
+        sub_menu_level1.css('min-height', `calc(100vh - ${header.height()}px - 20px)`);
 
         // Cover Background
         $(this).hover(() => {

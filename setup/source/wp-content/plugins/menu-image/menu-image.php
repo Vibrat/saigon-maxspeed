@@ -5,6 +5,8 @@
  * @licence GPLv2
  */
 
+require_once __DIR__ . '/config.php';
+
 /*
 Plugin Name: Menu Image
 Plugin URI: https://www.jedipress.com
@@ -679,7 +681,7 @@ class Menu_Image_Plugin {
 	 * Loading custom stylesheet to fix images positioning in match themes
 	 */
 	public function menu_image_add_inline_style_action() {
-		wp_register_style( 'menu-image', plugins_url( '', __FILE__ ) . '/includes/css/menu-image.css', array(), '2.9.5' );
+		wp_register_style( 'menu-image', plugins_url( '', __FILE__ ) . '/includes/css/menu-image.css', array(), MENU_IMAGE_VERSION );
 		wp_enqueue_style( 'menu-image' );
 	}
 
