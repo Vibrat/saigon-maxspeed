@@ -412,7 +412,8 @@ if (!function_exists('inwave_of_options')) {
                 "v2" => get_template_directory_uri() . "/assets/images/header/v2.jpg",
                 "v3" => get_template_directory_uri() . "/assets/images/header/v3.jpg",
                 "v4" => get_template_directory_uri() . "/assets/images/header/v4.jpg",
-                "v5" => get_template_directory_uri() . "/assets/images/header/v5.jpg"
+                "v5" => get_template_directory_uri() . "/assets/images/header/v5.jpg",
+                "v6" => get_template_directory_uri() . "/assets/images/header/v6.jpg"
             ));
         $inwave_of_options[] = array("name" => esc_html__("Sticky Header",'motohero'),
             "desc" => esc_html__("Check to enable a fixed header when scrolling, uncheck to disable.",'motohero'),
