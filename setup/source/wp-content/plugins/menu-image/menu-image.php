@@ -112,6 +112,7 @@ class Menu_Image_Plugin {
 		add_action( 'admin_init', array( $this, 'admin_init' ), 99 );
 
 		// Filters.
+		add_filter( 'nav_menu_css_class' , array( $this, 'add_custom_css_menu' ) , 10 , 3);
 		add_filter( 'wp_setup_nav_menu_item', array( $this, 'menu_image_wp_setup_nav_menu_item' ) );
 		add_filter( 'nav_menu_link_attributes', array( $this, 'menu_image_nav_menu_link_attributes_filter' ), 10, 4 );
 		add_filter( 'manage_nav-menus_columns', array( $this, 'menu_image_nav_menu_manage_columns' ), 11 );
@@ -358,9 +359,17 @@ class Menu_Image_Plugin {
 		$menu_image_settings = array(
 			'menu_item_image_size',
 			'menu_item_image_title_position',
-			'menu_item_image_action'
+			'menu_item_image_action',
+			'menu_item_style_action',
 		);
 		foreach ( $menu_image_settings as $setting_name ) {
+
+			if ($setting_name == 'menu_item_style_action') {
+				if (! isset( $_POST[ $setting_name ][ $post_id ])) {
+					update_post_meta( $post_id, "_$setting_name", esc_sql( '0' ) );
+				}
+			}
+
 			if ( isset( $_POST[ $setting_name ][ $post_id ] ) && ! empty( $_POST[ $setting_name ][ $post_id ] ) ) {
 				if ( $post->{"_$setting_name"} != $_POST[ $setting_name ][ $post_id ] ) {
 					update_post_meta( $post_id, "_$setting_name", esc_sql( $_POST[ $setting_name ][ $post_id ] ) );
@@ -383,6 +392,7 @@ class Menu_Image_Plugin {
 				'menu_item_image_size',
 				'menu_item_image_title_position',
 				'menu_item_image_action',
+				'menu_item_style_action',
 				'thumbnail_id',
 				'thumbnail_hover_id',
 			);
@@ -461,6 +471,10 @@ class Menu_Image_Plugin {
 
 		if (! isset($item->image_action)) {
 			$item->image_action = get_post_meta( $item->ID, '_menu_item_image_action', true );
+		}
+
+		if (! isset($item->style_action)) {
+			$item->style_action = get_post_meta( $item->ID, '_menu_item_style_action', true );
 		}
 
 		return $item;
@@ -590,6 +604,14 @@ class Menu_Image_Plugin {
 
 		return $title;
 	}
+
+	/**
+	 * Add a css class in menu
+	 */
+	function add_custom_css_menu($classes, $item) {
+		$classes[] = 'current-menu-item';
+		return $classes;
+}
 
 	/**
 	 * Replacement default menu item output.
@@ -726,6 +748,7 @@ class Menu_Image_Plugin {
 			delete_post_meta( $menu_item_id, '_menu_item_image_size' );
 			delete_post_meta( $menu_item_id, '_menu_item_image_title_position' );
 			delete_post_meta( $menu_item_id, '_menu_item_image_action' );
+			delete_post_meta( $menu_item_id, '_menu_item_style_action' );
 		}
 	}
 
@@ -768,6 +791,40 @@ class Menu_Image_Plugin {
 		}
 
 		return $content;
+	}
+
+	public function wp_menu_style_html($item_id) {
+
+		$content = '';
+		ob_start();
+		?>
+
+		<div class="menu-item-style-options">
+			<p class="description description-wide">
+					<input id="edit-menu-item-style-action-<?php echo $item_id; ?>"
+							type="checkbox"
+							class="widefat edit-menu-item-image-action"
+							name="menu_item_style_action[<?php echo $item_id; ?>]"
+							value="1"
+							<?php checked(get_post_meta( $item_id, '_menu_item_style_action', true ), true, 'checked' ) ?>
+							/>
+					<label for="edit-menu-item-image-action-<?php echo $item_id; ?>"><?php _e( 'Allow hovering images (Only level 1 menu)', 'menu-image' ); ?>
+				</label>
+			</p>
+		</div>
+
+		<?php
+		$content = "<div class='menu-item-styles' style='min-height:70px'>$content</div>" . ob_get_clean();
+
+		/**
+		 * Filter the admin menu item thumbnail HTML markup to return.
+		 *
+		 * @since 2.0
+		 *
+		 * @param string $content Admin menu item images HTML markup.
+		 * @param int    $item_id Post ID.
+		 */
+		return apply_filters( 'admin_menu_item_thumbnail_html', $content, $item_id );
 	}
 
 	/**
@@ -840,7 +897,7 @@ class Menu_Image_Plugin {
 			<p class="description description-wide">
 				<label for="edit-menu-item-image-action-<?php echo $item_id; ?>"><?php _e( 'Image Button Text', 'menu-image' ); ?>
 					<br />
-					<input 	id="edit-menu-item-image-action-<?php echo $item_id; ?>"
+					<input id="edit-menu-item-image-action-<?php echo $item_id; ?>"
 							type="text"
 							class="widefat edit-menu-item-image-action"
 							name="menu_item_image_action[<?php echo $item_id; ?>]"
@@ -921,6 +978,9 @@ class Menu_Image_Plugin {
 		?>
 		<div class="field-image hide-if-no-js wp-media-buttons">
 			<?php echo $this->wp_post_thumbnail_html( $item_id ); ?>
+		</div>
+		<div class="field-style-menu">
+			<?php echo $this->wp_menu_style_html( $item_id ); ?>
 		</div>
 	<?php
 	}
