@@ -609,7 +609,14 @@ class Menu_Image_Plugin {
 	 * Add a css class in menu
 	 */
 	function add_custom_css_menu($classes, $item) {
-		$classes[] = 'current-menu-item';
+		$is_hoverred_menu = get_post_meta($item->ID, '_menu_item_style_action', true);
+
+		if ($is_hoverred_menu != '1' && $item->menu_item_parent == '0') {
+			$classes[] = 'dropdown-menu-item';
+		} else if ($item->menu_item_parent == '0') {
+			$classes[] = 'hover-menu-item';
+		}
+
 		return $classes;
 }
 
