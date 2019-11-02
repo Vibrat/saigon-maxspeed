@@ -162,6 +162,7 @@
 
 .main-menu .iw-main-menu .dropdown-menu-item > .sub-menu li a {
     line-height: 28px;
+    text-transform: uppercase;
 }
 
 .main-menu .iw-main-menu .dropdown-menu-item > .sub-menu li a .menu-image-title {
@@ -169,10 +170,13 @@
 }
 
 .main-menu .iw-main-menu .dropdown-menu-item > .sub-menu li a .menu-image-hover-wrapper {
-    padding: 10px;
+    padding: 10px 0;
 }
-.main-menu .iw-main-menu .dropdown-menu-item > .sub-menu li a .menu-image-hover-wrapper img {
+.main-menu .iw-main-menu .dropdown-menu-item > .sub-menu li a .menu-image-hover-wrapper img,
+.main-menu .iw-main-menu .dropdown-menu-item > .sub-menu li a.menu-image-not-hovered img
+{
     width : 30px;
+    height: 30px;
 }
 
 .main-menu .iw-main-menu .dropdown-menu-item .sub-menu li {
@@ -237,4 +241,19 @@
     border-top: none;
     position: relative;
     visibility: visible !important;
+}
+
+
+.main-menu .iw-main-menu .dropdown-menu-item  > .sub-menu > .menu-item:hover > .sub-menu > .menu-item > .sub-menu > .menu-item > .sub-menu > .menu-item > a {
+    padding: 0;
+    justify-content: flex-start !important;
+    font-size: 12px !important;
+    text-transform: initial;
+}
+
+.main-menu .iw-main-menu .dropdown-menu-item  > .sub-menu > .menu-item:hover > .sub-menu > .menu-item > .sub-menu > .menu-item > .sub-menu > .menu-item:first-child > a {
+    padding-top: 12px;
+}
+.main-menu .iw-main-menu .dropdown-menu-item  > .sub-menu > .menu-item:hover > .sub-menu > .menu-item > .sub-menu > .menu-item > .sub-menu > .menu-item:first-child > a img {
+    margin: 10px 10px 10px 0;
 }
