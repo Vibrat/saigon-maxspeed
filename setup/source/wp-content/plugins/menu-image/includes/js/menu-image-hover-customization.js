@@ -1,8 +1,8 @@
 (function($) {
-
+  // Hover menu
   $(document).ready(function() {
     // Css for hovered-image
-    var hovered_imgs = $(".hovered-image").each(function(index, img) {
+    var hovered_imgs = $(".hover-menu-item .hovered-image").each(function(index, img) {
 
       // Prepare elements
       var closest_sub_menu     = $(img).closest("ul.sub-menu");
@@ -73,6 +73,7 @@
     var header =  $(".header");
     var menu_items = $(".iw-main-menu .iw-nav-menu")
       .children()
+      .filter('.hover-menu-item')
       .each(function(index) {
 
         var cover_container        = $(this).find("li a span.menu-cover:first");
@@ -120,10 +121,15 @@
           );
         });
       });
+  });
+})(jQuery);
 
+(function($) {
+  // Share menu image
+  $(document).ready(function() {
     // Css for menu-image
     var menu_image = $(
-      ".menu-image-hover-wrapper .menu-image, .menu-image"
+      ".hover-menu-item .menu-image-hover-wrapper .menu-image, .hover-menu-item .menu-image"
     ).each(function(index) {
 
       $(this).css({ height: "0", width: "0" }); // reset dimension
@@ -137,7 +143,25 @@
         width: "auto",
         "vertical-align": 'middle'
       });
+    });
 
+  });
+})(jQuery);
+
+(function($) {
+  // Menu Dropdowm
+  $(document).ready(function() {
+    const $dropdowns = $('.iw-main-menu .dropdown-menu-item');
+    // set margin for sub-menu
+    const $submenus = $dropdowns.find('> ul.sub-menu, > ul.sub-menu > li.menu-item > ul.sub-menu');
+    $submenus.each((index, item) => {
+      const $currentSubMenu = $(item);
+      const $parent = $currentSubMenu.closest('li.menu-item');
+
+      $currentSubMenu.css('margin-top', $parent.outerHeight(true));
+      $parent.on('hover', () => {
+        $currentSubMenu.css('margin-top', $parent.outerHeight(true));
+      })
     });
   });
 })(jQuery);
