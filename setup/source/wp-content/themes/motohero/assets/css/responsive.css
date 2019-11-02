@@ -17,7 +17,7 @@ RESPONSIVE SUPPORT FOR ALL DEVICES
     .header.clone {
         display: none;
     }
-    
+
     .body-boxed .header{
         width: auto;
     }
@@ -32,7 +32,7 @@ RESPONSIVE SUPPORT FOR ALL DEVICES
     .header.clone-float .off-canvas-open {
         display: block;
     }
-    
+
     .header.clone-float .iw-menu-none-mobile{
         display: none;
     }
@@ -40,13 +40,12 @@ RESPONSIVE SUPPORT FOR ALL DEVICES
     .header.clone {
         display: none;
     }
-    
+
     .header .iw-menu-default{
         margin-top: 0;
     }
     .header .iw-menu-default .iw-nav-menu li .sub-menu,
     .header .iw-menu-default .iw-nav-menu > li .sub-menu li .sub-menu {
-        max-width: 200px;
     }
     body.down .header-sticky.clone-float .main-menu {
         margin-top: 0;
